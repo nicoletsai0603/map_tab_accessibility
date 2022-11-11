@@ -1,0 +1,234 @@
+//回到頂端
+function Back_top() {
+    $('html,body').animate({ scrollTop: 0 });
+    $('#top').focus();
+
+
+}
+
+//手機選單
+function mobile_menu() {
+    var winWidth = $(window).width();
+
+    //漢堡線
+    $("#mobile_menu_labIcon").click(function() {
+        $(".nav-bar").toggleClass("on");
+        $(".portfolio-filter.isotope-filter.pull-center").toggleClass("on");
+        $("#greybg").toggle();
+        $('.hamburger').toggleClass('is-active');
+
+    })
+
+    $("#greybg").click(function() {
+
+        $(this).toggle();
+        $(".portfolio-filter.isotope-filter.pull-center").removeClass("on");
+        $('.hamburger').removeClass('is-active');
+    })
+
+}
+
+
+//tab 切换
+function navtab() {
+
+    $(".J-nav-tab").each(function() {
+        var tthis = $(this)
+        $(this).find("a").click(function() {
+            var $this = $(this);
+            var $obj = $this.attr("href");
+            tthis.find("a").removeClass("on")
+            $this.addClass("on");
+            $($obj).show().siblings().hide()
+            return false;
+        })
+        $(this).find("a").focus(function() {
+            var $this = $(this);
+            var $obj = $this.attr("href");
+            tthis.find("a").removeClass("on")
+            $this.addClass("on");
+            $($obj).show().siblings().hide()
+            return false;
+        })
+    })
+}
+
+
+//header置頂
+function headerTop() {
+    $(window).scroll(function() {
+        var winWidth = $(window).width(),
+            topWindow = $(window).scrollTop();
+        if (topWindow > 0 && winWidth > 1340) {
+            $('header').addClass("small animated fadeInDown");
+        } else {
+            $('header').removeClass("small animated fadeInDown ");
+        }
+    });
+
+
+
+    var winWidth = $(window).width();
+    if (winWidth < 1340) {
+        $(".submenu li.nsdnmenu ").click(function() {
+            $(this).toggleClass("on");
+            $(this).children(".hasChild").stop().slideToggle();
+
+            $(this).siblings(".submenu li.nsdnmenu").removeClass("on").children(".hasChild").stop().slideUp();
+        });
+    }
+}
+//手機次選單
+function MobileSubmenu() {
+    var winWidth = $(window).width();
+    if (winWidth < 1340) {
+
+        $("#greybg").css("display", "none");
+        $(".portfolio-filter.isotope-filter.pull-center,.hamburger").removeClass("on");
+        $('.hamburger').removeClass('is-active');
+
+    } else {
+
+        $("#greybg").css("display", "none");
+
+    }
+}
+
+//最新消息切換
+function tabSet() {
+    var _window = $(window),
+        ww = _window.width(),
+        wh = _window.height(),
+        _body = $('body'),
+        _header = $('.header'),
+        _menu = _header.find('.menu'),
+        hh = _header.outerHeight(true),
+
+        wwNormal = 1000,
+        wwMedium = 800,
+        wwSmall = 600,
+        wwxs = 420;
+    $('.tabs').each(function() {
+
+        var _tab = $(this),
+            _tabItem = _tab.find('.tabItem'),
+            _tabItemA = _tabItem.children('a'),
+            _tabContent = _tab.find('.tabContent'),
+            tabwidth = _tab.width(),
+            tabItemHeight = _tabItem.outerHeight(),
+            tabContentHeight = _tab.find('.active').next().innerHeight();
+        tabItemLength = _tabItem.length,
+            tabItemWidth = tabwidth / tabItemLength;
+
+        _tab.find('.active').next('.tabContent').show();
+
+
+
+        _tabItemA.focus(tabs);
+        _tabItemA.click(tabs);
+
+        function tabs(e) {
+            var _tabItemNow = $(this).parent();
+
+            _tabItem.removeClass('active');
+            _tabItemNow.addClass('active');
+
+            if (ww <= wwSmall) {
+                if (!$(this).parents('.tabs').hasClass('albumType4')) { // .albumType4.tab 嚙踢���唐丰�嚙賡鑘嚙�
+                    _tabItem.not('.active').next().slideUp();
+                    _tabItemNow.next().slideDown();
+
+                }
+            } else {
+                _tabItem.not('.active').next().hide();
+                _tabItemNow.next().show();
+                tabContentHeight = _tabItemNow.next().innerHeight();
+                _tab.height(tabContentHeight + tabItemHeight);
+            }
+            e.preventDefault();
+        }
+    });
+}
+
+
+
+//相關消息
+function RelatedLinks() {
+
+
+    var swiper = new Swiper('.mySwiper', {
+        slidesPerView: 4,
+        loop: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        // init: false,
+
+
+        breakpoints: {
+            1500: {
+                slidesPerView: 5,
+            },
+            1340: {
+                slidesPerView: 4,
+            },
+
+            968: {
+                slidesPerView: 3,
+            },
+            760: {
+                slidesPerView: 2,
+            },
+            500: {
+                slidesPerView: 1,
+            }
+        }
+    });
+
+}
+//圖片展開
+function imgscript() {
+
+    //tab切換
+    $(".tabRoot .tabArea").hide();
+    $(".tabRoot").each(function() {
+        $(this).find('.tabArea:eq(0)').show();
+        $(this).find(".tabButton:eq(0)").addClass("section");
+        var _root = $(this);
+        $(this).find(".tabButton").each(function(index) {
+            $(this).on('focusin', function() {
+                $(_root).find('.tabArea').hide();
+                $(_root).find(".tabArea:eq(" + index + ")").stop().fadeIn();
+                $(_root).find('.tabButton').removeClass("section");
+                $(_root).find(".tabButton:eq(" + index + ")").addClass("section");
+            });
+        });
+    });
+}
+//設計a href錨點來切換至區塊位置，但因為切換沒有滑動效果，所以需要加再上動畫滾動效果
+$(document).ready(function() {
+    $(".disB").on("click", function() {
+
+        $(".noteZone").slideToggle();
+    });
+
+    $("a.en_btn").on("click", function() {
+        var hrefLink = $(this).attr("name");
+        $("html,body").animate({
+                scrollTop: $(hrefLink).offset().top //直接到相對位置
+            },
+            800
+        );
+    });
+});
+
+$(function() {
+    //Back_top(); //回到頂端
+    navtab(); //tab 切换
+    mobile_menu(); //手機選單
+    headerTop(); //header置頂
+    MobileSubmenu(); //手機次選單
+    tabSet(); //最新消息切換
+    RelatedLinks(); //相關連結  
+    imgscript(); //圖片展開
+
+});

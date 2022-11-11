@@ -1,0 +1,331 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+.carousel-caption {
+    z-index: 10;
+    display: inline-flex;
+    flex-direction: column
+}
+
+
+/* Declare heights because of positioning of img element */
+
+.carousel-item {
+    min-height: 32rem;
+    background-color: #777;
+    background-size: COVER;
+    background-position: center;
+}
+
+    .carousel-item a {
+        height: 100%;
+        width: 100%;
+    }
+
+.carousel-caption:hover > .banner_txt {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+}
+
+h2.banner_txt {
+    border-bottom: #666 0px solid;
+    color: #FFF;
+    margin-bottom: 5px
+}
+
+h2.banner_txt,
+h5.banner_txt {
+    background-color: rgba(0, 0, 0, 0.4);
+    display: inline-flex;
+    width: fit-content;
+    padding: 10px
+}
+
+
+/*英文版調版*/
+
+.page-item.active .page-link {
+    background-color: #109A8A;
+    border-color: #109A8A;
+}
+
+.page-link:hover {
+    color: #109A8A;
+}
+
+h2.LatestNews {
+    color: #2d5c88;
+    font-weight: 300;
+    border-bottom: unset;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+
+
+table.dataTable {
+    border: 0;
+    margin-bottom: 60px !important;
+    max-width: 950px !important;
+    margin: 50px auto;
+    margin-top: 50px !important;
+}
+
+    table.dataTable tr,
+    table.dataTable td {
+        border: 0
+    }
+
+        table.dataTable tr:nth-of-type(odd) {
+            background: #F5F5F5;
+        }
+
+    table.dataTable td {
+        border-bottom: #ccc 1px solid;
+        padding: 0;
+    }
+
+        table.dataTable td a:not([href]):not([tabindex]) {
+            display: block;
+            margin-top: 10px;
+            cursor: pointer;
+            color: #2d5c88;
+            font-weight: bold
+        }
+
+.more_flex {
+    display: flex;
+    width: 95%;
+    margin: auto;
+    padding: 10px 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.date {
+    display: block;
+    font-size: 0.9em;
+    color: #333333;
+}
+
+.dataTables_info,
+.dataTables_paginate {
+    display: flex;
+    float: left;
+    margin-bottom: 60px;
+}
+
+.dataTables_paginate {
+    float: right;
+}
+
+.Zero {
+    align-items: center;
+    display: block;
+}
+
+.Zerotitle {
+    color: #2d5c88;
+    font-weight: 300;
+    border-bottom: unset;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.Zero .new_border {
+    max-width: 500px;
+}
+
+.Zero .new_border2 {
+    max-width: 1020px;
+    margin: 50px auto;
+}
+
+.Zero .wid48percent {
+    position: absolute;
+    left: 0;
+    top: 15%;
+}
+
+.annual_en {
+    margin: 0 auto
+}
+
+.AnnualReportimg {
+    width: 100%;
+    position: relative;
+}
+
+    .AnnualReportimg .width1340 {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .AnnualReportimg a {
+      
+        margin: 50px 25px;
+    }
+
+    
+
+.annual_en ul {
+    width: 70%;
+    margin: 10px auto;
+}
+
+    .annual_en ul li {
+        border-bottom: #ccc 1px solid;
+        width: 100%;
+        padding: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .annual_en ul li:before {
+            content: "";
+            position: relative;
+            display: block;
+            width: 26px;
+            height: 33px;
+            background: url(/fore/img/PDF.svg) no-repeat left top;
+            background-size: contain;
+            margin-right: 20px;
+        }
+
+.AnnualReportimg_blue {
+    background-color: #109A8A;
+    width: 100%;
+    opacity: 0.23;
+    height: 300px;
+    position: absolute;
+    right: 0;
+    top: 10%;
+}
+
+.NetZero {
+    color: #fff;
+    padding-right: 15px;
+    background-color: #109A8A;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    border-bottom: none;
+    height: 233px;
+}
+
+@media screen and (max-width: 941px) {
+    .carousel-item {
+        min-height: 20rem;
+    }
+
+    h5.banner_txt {
+        display: none;
+    }
+
+    h2.banner_txt {
+        font-size: 1.1rem
+    }
+
+    .AnnualReportimg a {
+        width: calc(100% - 50px);
+        margin: 50px 50px;
+    }
+}
+
+.awrad_en {
+    line-height: 1.8;
+    max-width: 1300px;
+    margin: auto
+}
+
+    .awrad_en h2 {
+        background-image: url(../img/h_border_sub.png);
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: contain;
+        padding-bottom: 10px;
+        font-size: 2.4em;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #075a7e;
+        margin-top: 150px;
+        border-bottom: none;
+    }
+
+    .awrad_en h3 {
+        border-bottom: 2px solid #00a0e9;
+        border-left: 7px solid #00a0e9;
+        padding: 3px 12px;
+        font-size: 1.5em;
+        font-weight: normal;
+        line-height: 1.2;
+    }
+
+
+
+    .awrad_en .link_list ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+
+.newLinkSet li:before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border: 1px solid;
+    border-color: #326ba2 #326ba2 transparent transparent;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 0.95em;
+    left: 7px;
+}
+
+.awrad_en .link_list li {
+    border-top: 1px dotted #999;
+    position: relative;
+    padding: 7px;
+}
+
+    .awrad_en .link_list li:last-child {
+        border-bottom: 1px dotted #999;
+    }
+
+    .awrad_en .link_list li ul {
+        margin: 7px 0 0 20px;
+    }
+
+    .awrad_en .link_list li li {
+        border-top: 1px dotted #ccc;
+    }
+
+        .awrad_en .link_list li li:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+.awrad_en .link_list a {
+    display: inline-block;
+    padding-left: 17px;
+    position: relative;
+}
+
+.awrad_en > .section {
+    margin-top: 40px;
+}
